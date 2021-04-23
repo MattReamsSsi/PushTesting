@@ -11,6 +11,12 @@ import {name as appName} from './app.json';
 import { Provider } from 'react-redux';
 import store from './src/redux-stuff/store';
 
+import messaging from '@react-native-firebase/messaging';
+
+messaging()
+  .subscribeToTopic('matt-topic')
+  .then(() => console.log('Subscribed to topic!'));
+
 const Root = () => (
     <Provider store={store}>
         <App />
