@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "212063570804",
+    "project_id": "pushtesting-d1828",
+    "storage_bucket": "pushtesting-d1828.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212063570804:android:e82104d9c8d61f4a56fa21",
+        "android_client_info": {
+          "package_name": "com.pushtesting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212063570804-0avmhp4eej4ekihg73n414f060diclra.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJvF5Nm-bfXBpKHZbPKuXxXmjHLdEvuXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212063570804-0avmhp4eej4ekihg73n414f060diclra.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
