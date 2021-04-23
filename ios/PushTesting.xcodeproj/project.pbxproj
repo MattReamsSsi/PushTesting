@@ -38,6 +38,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PushTesting/main.m; sourceTree = "<group>"; };
 		5851C8DFEC32ABBEF85C6FD9 /* Pods-PushTesting-PushTestingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushTesting-PushTestingTests.release.xcconfig"; path = "Target Support Files/Pods-PushTesting-PushTestingTests/Pods-PushTesting-PushTestingTests.release.xcconfig"; sourceTree = "<group>"; };
 		751BC5F74A315EFDDE6E213C /* libPods-PushTesting-PushTestingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PushTesting-PushTestingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8119CC602633148800F9BBE0 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = PushTesting/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCCD5F4A3068BA83A1764506 /* libPods-PushTesting.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PushTesting.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5826634CB9DF58C5D2B903A /* Pods-PushTesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushTesting.release.xcconfig"; path = "Target Support Files/Pods-PushTesting/Pods-PushTesting.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				8119CC602633148800F9BBE0 /* FontAwesome.ttf */,
 				13B07FAE1A68108700A75B9A /* PushTesting */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* PushTestingTests */,
@@ -145,7 +147,6 @@
 				FE7B8CE70F184093F996BDA7 /* Pods-PushTesting-PushTestingTests.debug.xcconfig */,
 				5851C8DFEC32ABBEF85C6FD9 /* Pods-PushTesting-PushTestingTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
