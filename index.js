@@ -13,9 +13,16 @@ import store from './src/redux-stuff/store';
 
 import messaging from '@react-native-firebase/messaging';
 
+import {
+  addToPushLog
+} from './src/redux-stuff/furnacesSlice';
+
 messaging()
   .subscribeToTopic('matt-topic')
-  .then(() => console.log('Subscribed to topic!'));
+  .then(() => {
+    console.log('Subscribed to topic!');
+    store.dispatch(addToPushLog('Subscribed to topic!'));
+  });
 
 const Root = () => (
     <Provider store={store}>

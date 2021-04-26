@@ -18,16 +18,13 @@ import {
 } from '../redux-stuff/counterSlice';
 
 import {
-  fetchFurnacesAndStuff,
-  selectFurnaces,
-  selectStatus
+  selectPushLog
 } from '../redux-stuff/furnacesSlice';
 
 const Home = ({ navigation }) => {
 
   const count = useSelector(selectCount);
-  const status = useSelector(selectStatus);
-  const furnaces = useSelector(selectFurnaces);
+  const pushLog = useSelector(selectPushLog);
 
   const dispatch = useDispatch();
 
@@ -52,21 +49,10 @@ const Home = ({ navigation }) => {
             onPress={() => navigation.navigate('Another')}
             type="outline"
         />
-        <Button
-          onPress={() => dispatch(fetchFurnacesAndStuff())}
-          title={"fetch furnaces"}
-          type="outline"
-        />
-        <Text>{status}</Text>
-        {/* <Text>{JSON.stringify(furnaces)}</Text> */}
-        <Text>furnaces below:</Text>
-        {Object.values(furnaces).map((furnace) => 
-          <Button
-            key={furnace.id}
-            title={furnace.name}
-            type="outline"
-            onPress={() => navigation.navigate('PyroDetails', {furnace})}
-          />
+
+        <Text>push status below:</Text>
+        {Object.values(pushLog).map((v) => 
+          <Text>{v}</Text>
         )}
       </View>
     </SafeAreaView>
