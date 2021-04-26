@@ -51,8 +51,8 @@ const Home = ({ navigation }) => {
         />
 
         <Text>push status below:</Text>
-        {Object.values(pushLog).map((v) => 
-          <Text>{v}</Text>
+        {pushLog.map((v, i) => 
+          <Text key={i}>{v}</Text>
         )}
       </View>
     </SafeAreaView>
