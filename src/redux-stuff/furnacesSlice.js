@@ -1,8 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import SsiApiClient from './SsiApiClient';
 
 const initialState = {
   pushLog: []//strings
 };
+
+export const authenticateUser = createAsyncThunk('furnaces/authenticateUser', async (username, password) => {
+  return await SsiApiClient.authenticateUser(username, password);
+});
 
 export const furnacesSlice = createSlice({
   name: 'furnaces',
