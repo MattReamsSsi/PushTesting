@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Another = ({ navigation }) =>  {
+const LoginPage = ({ navigation }) =>  {
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
@@ -23,9 +23,9 @@ const Another = ({ navigation }) =>  {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Another Screen</Text>
+        <Text>Login Page</Text>
       </View>
     );
   }
 
-export default Another;
+export default LoginPage;

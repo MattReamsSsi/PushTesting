@@ -23,7 +23,7 @@ messaging()
   });
 
 messaging().setBackgroundMessageHandler(async remoteMessage => {
-  store.dispatch(addToPushLog('Message handled in the background! ' + remoteMessage.notification.title + '\n' + remoteMessage.notification.body));
+  store.dispatch(addToPushLog('Message handled in the background! \n' + remoteMessage.notification.title + '\n' + remoteMessage.notification.body));
 });
 
 messaging().onMessage(async remoteMessage => {

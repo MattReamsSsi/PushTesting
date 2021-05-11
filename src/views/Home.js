@@ -45,8 +45,8 @@ const Home = ({ navigation }) => {
           type="outline"
         />
         <Button
-            title="Go to Another"
-            onPress={() => navigation.navigate('Another')}
+            title="Go to LoginPage"
+            onPress={() => navigation.navigate('LoginPage')}
             type="outline"
         />
 

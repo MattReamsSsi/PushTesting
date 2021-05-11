@@ -11,7 +11,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Home from './src/views/Home';
-import Another from './src/views/Another';
+import LoginPage from './src/views/LoginPage';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,7 +42,7 @@ function App() {
                   iconName = focused
                     ? 'home'
                     : 'bed';
-                } else if (route.name === 'Another') {
+                } else if (route.name === 'LoginPage') {
                   iconName = focused ? 'bath' : 'cab';
                 }
     
@@ -56,7 +56,7 @@ function App() {
             }}
           >
             <Tab.Screen name="Home" component={HomeStackScreen} />
-            <Tab.Screen name="Another" component={Another} />
+            <Tab.Screen name="LoginPage" component={LoginPage} />
           </Tab.Navigator>
         </NavigationContainer>
       </ThemeProvider>
