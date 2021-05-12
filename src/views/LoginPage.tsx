@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { authenticateUser } from '../redux-stuff/furnacesSlice';
+import { authenticateUser, getUserFromStorage, selectCurrentUser } from '../redux-stuff/furnacesSlice';
 
 const LoginPage = ({ navigation }) => {
 
   const [username, setUsername] = useState('some');
   const [password, setPassword] = useState('thing');
 
+  const currentUser = useSelector(selectCurrentUser);
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserFromStorage());
+  }, [dispatch]);//[dispatch] is so that this isn't called on each re-render.
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -31,6 +37,7 @@ const LoginPage = ({ navigation }) => {
   return (
     <View>
       <Text>Login Page</Text>
+      <Text>current user: {currentUser}</Text>
       <Text>{"username: "}</Text>
       <TextInput
         style={styles.input}
