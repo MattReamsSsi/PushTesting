@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import SsiApiClient from './SsiApiClient';
 import StorageStuff from '../StorageStuff';
+import FirebaseStuff from '../FirebaseStuff';
 
 const initialState = {
   currentUser: null,//string
+  currentTopic: null,//string
   pushLog: []//strings
 };
 
@@ -11,10 +13,15 @@ export const authenticateUser = createAsyncThunk('furnaces/authenticateUser', as
   const {authenticated, user} = await SsiApiClient.authenticateUser(username, password);
   if(authenticated) {
     await StorageStuff.saveUsername(user.userName);
+    const oldTopic = StorageStuff.getFirebaseTopic();
+    const newTopic = FirebaseStuff.createTopic(user);
+    FirebaseStuff.subscribeToTopic(oldTopic, newTopic);
+    await StorageStuff.saveFirebaseTopic(topic);
+    const currentTopic = StorageStuff.getFirebaseTopic();
     const savedUsername = await StorageStuff.getUsername();
-    return {authenticated, username: savedUsername};
+    return {authenticated, username: savedUsername, currentTopic};
   }
-  return {authenticated, username};
+  return {authenticated, username, currentTopic: null};
 });
 
 export const getUserFromStorage = createAsyncThunk('furnaces/getUserFromStorage', async () => {
@@ -40,6 +47,7 @@ export const furnacesSlice = createSlice({
         console.log("payload: " + action.payload);
         if(action.payload.authenticated) {
           state.currentUser = action.payload.username;
+          state.currentTopic = action.payload.currentTopic;
         }
         state.pushLog.push("fulfilled")
       })
@@ -58,5 +66,6 @@ export const { addToPushLog } = furnacesSlice.actions;
 
 export const selectPushLog = state => state.furnaces.pushLog;
 export const selectCurrentUser = state => state.furnaces.currentUser;
+export const selectCurrentTopic = state => state.furnaces.currentTopic;
 
 export default furnacesSlice.reducer;

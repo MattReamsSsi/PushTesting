@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { authenticateUser, getUserFromStorage, selectCurrentUser } from '../redux-stuff/furnacesSlice';
+import { authenticateUser, getUserFromStorage, selectCurrentUser, selectCurrentTopic } from '../redux-stuff/furnacesSlice';
 
 const LoginPage = ({ navigation }) => {
 
@@ -11,6 +11,7 @@ const LoginPage = ({ navigation }) => {
   const [password, setPassword] = useState('thing');
 
   const currentUser = useSelector(selectCurrentUser);
+  const currentTopic = useSelector(selectCurrentTopic);
 
   const dispatch = useDispatch();
 
@@ -38,6 +39,7 @@ const LoginPage = ({ navigation }) => {
     <View>
       <Text>Login Page</Text>
       <Text>current user: {currentUser}</Text>
+      <Text>current topic: {currentTopic}</Text>
       <Text>{"username: "}</Text>
       <TextInput
         style={styles.input}
