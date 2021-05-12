@@ -23,7 +23,7 @@ export const authenticateUser = createAsyncThunk('furnaces/authenticateUser', as
     console.log("newTopic: " + newTopic);
     FirebaseStuff.subscribeToTopic(oldTopic, newTopic);
     console.log("004");
-    await StorageStuff.saveFirebaseTopic(topic);
+    await StorageStuff.saveFirebaseTopic(newTopic);
     console.log("005");
     const currentTopic = await StorageStuff.getFirebaseTopic();
     console.log("006");
