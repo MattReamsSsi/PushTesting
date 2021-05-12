@@ -7,8 +7,8 @@ import { authenticateUser, getUserFromStorage, selectCurrentUser, selectCurrentT
 
 const LoginPage = ({ navigation }) => {
 
-  const [username, setUsername] = useState('some');
-  const [password, setPassword] = useState('thing');
+  const [username, setUsername] = useState('testuser');
+  const [password, setPassword] = useState('ssississi');
 
   const currentUser = useSelector(selectCurrentUser);
   const currentTopic = useSelector(selectCurrentTopic);
