@@ -8,9 +8,9 @@ const initialState = {
 };
 
 export const authenticateUser = createAsyncThunk('furnaces/authenticateUser', async ({username, password}) => {
-  const authenticated = await SsiApiClient.authenticateUser(username, password);
+  const {authenticated, user} = await SsiApiClient.authenticateUser(username, password);
   if(authenticated) {
-    await StorageStuff.saveUsername(username);
+    await StorageStuff.saveUsername(user.userName);
     const savedUsername = await StorageStuff.getUsername();
     return {authenticated, username: savedUsername};
   }
