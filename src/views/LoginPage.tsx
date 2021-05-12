@@ -49,7 +49,7 @@ const LoginPage = ({ navigation }) => {
         title="Login"
         onPress={() => {
           console.log("something");
-          dispatch(authenticateUser());
+          dispatch(authenticateUser({username, password}));
         }}
       />
     </View>

@@ -5,9 +5,9 @@ const initialState = {
   pushLog: []//strings
 };
 
-export const authenticateUser = createAsyncThunk('furnaces/authenticateUser', async () => {
+export const authenticateUser = createAsyncThunk('furnaces/authenticateUser', async ({username, password}) => {
   console.log("else");
-  const ret =  await SsiApiClient.authenticateUser();
+  const ret =  await SsiApiClient.authenticateUser(username, password);
   return ret;
 });
 
