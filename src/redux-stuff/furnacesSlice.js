@@ -17,22 +17,22 @@ export const furnacesSlice = createSlice({
   reducers: {
     addToPushLog: (state, action) => {
       state.pushLog.push(action.payload)
-    },
-    extraReducers: builder => {
-      builder
-        .addCase(authenticateUser.pending, (state, action) => {
-          console.log("pending");
-          state.pushLog.push("pending")
-        })
-        .addCase(authenticateUser.fulfilled, (state, action) => {
-          console.log("fulfilled");
-          state.pushLog.push("fulfilled")
-        })
-        .addCase(authenticateUser.rejected, (state, action) => {
-          console.log("rejected");
-          state.pushLog.push("rejected");
-        })
     }
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(authenticateUser.pending, (state, action) => {
+        console.log("pending");
+        state.pushLog.push("pending")
+      })
+      .addCase(authenticateUser.fulfilled, (state, action) => {
+        console.log("fulfilled");
+        state.pushLog.push("fulfilled")
+      })
+      .addCase(authenticateUser.rejected, (state, action) => {
+        console.log("rejected");
+        state.pushLog.push("rejected");
+      })
   }
 });
 
