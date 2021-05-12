@@ -12,13 +12,23 @@ const initialState = {
 export const authenticateUser = createAsyncThunk('furnaces/authenticateUser', async ({username, password}) => {
   const {authenticated, user} = await SsiApiClient.authenticateUser(username, password);
   if(authenticated) {
+    console.log("000");
     await StorageStuff.saveUsername(user.userName);
-    const oldTopic = StorageStuff.getFirebaseTopic();
+    console.log("001");
+    const oldTopic = await StorageStuff.getFirebaseTopic();
+    console.log("002");
     const newTopic = FirebaseStuff.createTopic(user);
+    console.log("003");
+    console.log("oldTopic: " + oldTopic);
+    console.log("newTopic: " + newTopic);
     FirebaseStuff.subscribeToTopic(oldTopic, newTopic);
+    console.log("004");
     await StorageStuff.saveFirebaseTopic(topic);
-    const currentTopic = StorageStuff.getFirebaseTopic();
+    console.log("005");
+    const currentTopic = await StorageStuff.getFirebaseTopic();
+    console.log("006");
     const savedUsername = await StorageStuff.getUsername();
+    console.log("007");
     return {authenticated, username: savedUsername, currentTopic};
   }
   return {authenticated, username, currentTopic: null};

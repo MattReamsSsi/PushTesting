@@ -19,11 +19,13 @@ export default class FirebaseStuff {
   }
 
   static subscribeToTopic(previousTopic, newTopic) {
-    messaging()
-    .unsubscribeFromTopic(previousTopic)
-    .then(() => {
-        store.dispatch(addToPushLog('Subscribed to topic!'));
-    });
+    if(previousTopic !== null){
+        messaging()
+        .unsubscribeFromTopic(previousTopic)
+        .then(() => {
+            store.dispatch(addToPushLog('Subscribed to topic!'));
+        });
+    }
     messaging()
     .subscribeToTopic(newTopic)
     .then(() => {
