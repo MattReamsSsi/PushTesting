@@ -4,10 +4,7 @@ import { WebView } from 'react-native-webview';
 
 const WebViewTestPage = () => {
     return (
-            <WebView
-                source={{ uri: 'https://logrocket.com/' }}
-                style={{ marginTop: 20 }}
-            />
+        <WebView source={{ uri: "file:///android_asset/matt-try.html" }} />
     );
   };
   
