@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Home from './src/views/Home';
 import LoginPage from './src/views/LoginPage';
+import WebViewTestPage from './src/views/WebViewTestPage';
 
 const Tab = createBottomTabNavigator();
 
@@ -57,6 +58,7 @@ function App() {
           >
             <Tab.Screen name="Home" component={HomeStackScreen} />
             <Tab.Screen name="LoginPage" component={LoginPage} />
+            <Tab.Screen name="WebViewTestPage" component={WebViewTestPage} />
           </Tab.Navigator>
         </NavigationContainer>
       </ThemeProvider>
