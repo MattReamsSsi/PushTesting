@@ -44,7 +44,7 @@ export const furnacesSlice = createSlice({
       })
       .addCase(authenticateUser.fulfilled, (state, action) => {
         console.log("fulfilled");
-        console.log("payload: " + action.payload);
+        //console.log("payload: " + action.payload);
         if(action.payload.authenticated) {
           state.currentUser = action.payload.username;
           state.currentTopic = action.payload.currentTopic;

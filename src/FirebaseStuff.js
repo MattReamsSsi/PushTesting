@@ -23,13 +23,15 @@ export default class FirebaseStuff {
         messaging()
         .unsubscribeFromTopic(previousTopic)
         .then(() => {
-            store.dispatch(addToPushLog('Subscribed to topic!'));
+          console.log("unsubscribe/then");
+          store.dispatch(addToPushLog('Unubscribed to topic!'));
         });
     }
     messaging()
     .subscribeToTopic(newTopic)
     .then(() => {
-        store.dispatch(addToPushLog('Unsubscribed to topic!'));
+      console.log("subscribe/then");
+      store.dispatch(addToPushLog('Subscribed to topic!'));
     });
   }
 
