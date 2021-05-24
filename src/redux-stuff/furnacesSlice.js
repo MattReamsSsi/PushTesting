@@ -25,7 +25,9 @@ export const authenticateUser = createAsyncThunk('furnaces/authenticateUser', as
 });
 
 export const getUserFromStorage = createAsyncThunk('furnaces/getUserFromStorage', async () => {
-  return await StorageStuff.getUsername();
+  const userName = await StorageStuff.getUsername();
+  const topic = await StorageStuff.getFirebaseTopic();
+  return {userName, topic};
 });
 
 export const furnacesSlice = createSlice({
@@ -57,7 +59,8 @@ export const furnacesSlice = createSlice({
       })
       .addCase(getUserFromStorage.fulfilled, (state, action) => {
         console.log("getUserFromStorage.fulfilled");
-        state.currentUser = action.payload;
+        state.currentUser = action.payload.userName;
+        state.currentTopic = action.payload.topic;
       })
   }
 });
