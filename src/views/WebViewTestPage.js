@@ -10,23 +10,29 @@ const WebViewTestPage = () => {
 
     return (
         //<WebView source={{ uri: "file:///android_asset/matt-try.html" }} />
-        <WebView
+      //   <WebView
+      //   style={{flex: 1}}
+      //   originWhitelist={['*']}
+      //   source={{uri:'file:///android_asset/index.html'}}
+      //   style={{ marginTop: 20 }}
+      //   javaScriptEnabled={true}
+      //   domStorageEnabled={true}
+      //   onMessage={event => {
+      //     alert(event.nativeEvent.data);
+      //   }}
+      // />
+      // <WebView source={{ html: domString }}></WebView>
+      <WebView
         style={{flex: 1}}
         originWhitelist={['*']}
-        source={{uri:'file:///android_asset/index.html'}}
+        source={{uri:'http://192.168.1.73:3000/'}}
         style={{ marginTop: 20 }}
         javaScriptEnabled={true}
         domStorageEnabled={true}
+        onMessage={event => {
+            alert(event.nativeEvent.data);
+          }}
       />
-      //<WebView source={{ html: domString }}></WebView>
-    //   <WebView
-    //     style={{flex: 1}}
-    //     originWhitelist={['*']}
-    //     source={{uri:'http://192.168.1.80:8080/'}}
-    //     style={{ marginTop: 20 }}
-    //     javaScriptEnabled={true}
-    //     domStorageEnabled={true}
-    //   />
     );
   };
 
