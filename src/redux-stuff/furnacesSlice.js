@@ -10,11 +10,14 @@ const initialState = {
 };
 
 export const authenticateUser = createAsyncThunk('furnaces/authenticateUser', async ({username, password}) => {
-  const {authenticated, user} = await SsiApiClient.authenticateUser(username, password);
+
+  console.log("matt auth 2");
+
+  const {authenticated, user, nodeId} = await SsiApiClient.authenticateUser(username, password);
   if(authenticated) {
     await StorageStuff.saveUsername(user.userName);
     const oldTopic = await StorageStuff.getFirebaseTopic();
-    const newTopic = FirebaseStuff.createTopic(user);
+    const newTopic = FirebaseStuff.createTopic(nodeId, user);
     FirebaseStuff.subscribeToTopic(oldTopic, newTopic);
     await StorageStuff.saveFirebaseTopic(newTopic);
     const currentTopic = await StorageStuff.getFirebaseTopic();

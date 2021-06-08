@@ -35,7 +35,7 @@ export default class FirebaseStuff {
     });
   }
 
-  static createTopic(mobileUser) {
-    return 'ssi-topic-5-4852-0168--' + mobileUser.id;
+  static createTopic(nodeId, mobileUser) {
+    return 'ssi-topic-' + nodeId + '--' + mobileUser.id;
   }
 }
