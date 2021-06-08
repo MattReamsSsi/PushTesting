@@ -36,6 +36,6 @@ export default class FirebaseStuff {
   }
 
   static createTopic(mobileUser) {
-    return 'ssi-topic-121170fb-95bd-464e-a2ad-9026908799b6--' + mobileUser.id;
+    return 'ssi-topic-5-4852-0168--' + mobileUser.id;
   }
 }
