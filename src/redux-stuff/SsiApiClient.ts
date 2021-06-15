@@ -6,7 +6,7 @@ async function doGet(path) {
   return response.data;
 }
 
-const ipAddress = '192.168.1.99';
+const ipAddress = '192.168.1.102';
 
 export default class SsiApiClient {
   
