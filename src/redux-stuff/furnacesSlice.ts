@@ -2,14 +2,21 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import SsiApiClient from './SsiApiClient';
 import StorageStuff from '../StorageStuff';
 import FirebaseStuff from '../FirebaseStuff';
+import type { RootState } from './store';
 
-const initialState = {
-  currentUser: null,//string
-  currentTopic: null,//string
-  pushLog: []//strings
+interface FurnacesState {
+  currentUser: string
+  currentTopic: string
+  pushLog: string[]
+}
+
+const initialState: FurnacesState = {
+  currentUser: null,
+  currentTopic: null,
+  pushLog: []
 };
 
-export const authenticateUser = createAsyncThunk('furnaces/authenticateUser', async ({username, password}) => {
+export const authenticateUser = createAsyncThunk('furnaces/authenticateUser', async ({username, password}: any) => {
 
   console.log("matt auth 2");
 
@@ -70,8 +77,8 @@ export const furnacesSlice = createSlice({
 
 export const { addToPushLog } = furnacesSlice.actions;
 
-export const selectPushLog = state => state.furnaces.pushLog;
-export const selectCurrentUser = state => state.furnaces.currentUser;
-export const selectCurrentTopic = state => state.furnaces.currentTopic;
+export const selectPushLog = (state: RootState) => state.furnaces.pushLog;
+export const selectCurrentUser = (state: RootState) => state.furnaces.currentUser;
+export const selectCurrentTopic = (state: RootState) => state.furnaces.currentTopic;
 
 export default furnacesSlice.reducer;
